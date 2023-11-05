@@ -1,6 +1,6 @@
 import numpy as np
 import streamlit as st
-import pickle5 as pkl
+import pickle as pkl
 
 
 if __name__ == '__main__':
