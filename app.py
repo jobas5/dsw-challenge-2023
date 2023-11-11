@@ -47,7 +47,6 @@ def responsive_iframe(url):
     """
     st.markdown(code, unsafe_allow_html=True)
 
-@st.cache(suppress_st_warning=True)
 def load_model():
     file_name = 'xgboost_model_11.pkl'
 
