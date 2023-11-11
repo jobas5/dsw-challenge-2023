@@ -89,7 +89,7 @@ def page_three():
         st.write('Input Features')
         tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
         location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
-        device_class = st.selectbox('Jenis Device: ', ("Low End", "Mid End", "High End"))
+        device_class = st.selectbox('Jenis Device: ', ("High End", "Mid End", "Low End"))
 
         if device_class == "Low End":
             game = st.radio('Use Games Product: ', ("No Internet Service",))
