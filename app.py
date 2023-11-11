@@ -86,17 +86,14 @@ def render_churn_prediction():
 
     
     
-    with st.form('Feature Audio Analysis'):
-        st.write('Input Features')
-        tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
-        location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
-        call_center = st.radio('Call Center: ', ("No", "Yes"))
-        payment_method = st.radio('Metode Pembayaran: ', ("Debit", "Pulsa", "Digital Wallet", "Credit"))
-        monthly_purchase = st.number_input('Monthly Purchase of Thousand IDR: ', value=0.0, format="%.3f")
-        cltv = st.number_input('CLTV: ', value=0.0, format="%.3f")
 
-        st.form_submit_button('Generate')
-
+    st.write('Input Features')
+    tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
+    location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
+    call_center = st.radio('Call Center: ', ("No", "Yes"))
+    payment_method = st.radio('Metode Pembayaran: ', ("Debit", "Pulsa", "Digital Wallet", "Credit"))
+    monthly_purchase = st.number_input('Monthly Purchase of Thousand IDR: ', value=0.0, format="%.3f")
+    cltv = st.number_input('CLTV: ', value=0.0, format="%.3f")
     device_class = st.selectbox('Jenis Device: ', ("Low End", "Mid End", "High End"))
 
     def get_radio_options(device_class):
@@ -133,8 +130,10 @@ def render_churn_prediction():
 
     loaded_model = load_model()
     prediction = loaded_model.predict(data)
-    prediction_result = prediction_mapping[prediction[0]]
-    st.write(f"Prediction: {prediction_result}")        
+
+    if st.button('Predict', type='primary'):
+        prediction_result = prediction_mapping[prediction[0]]
+        st.write(f"Prediction: {prediction_result}")        
 
 def page_three():
     render_churn_prediction()
