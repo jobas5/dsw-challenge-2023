@@ -61,15 +61,14 @@ def page_two():
     st.title('Dashboard')
     responsive_iframe("https://lookerstudio.google.com/embed/reporting/e250424c-d5da-4da0-bfb5-fb7607becac0/page/p_383q79vcbd&embed=0")
 
-
-def page_three():
+def render_churn_prediction():
     st.title('Churn Prediction :writing_hand:')
 
     mapping = {
-        "Jakarta" : 0,
-        "Bandung" : 1,
-        "Low End" : 0,
-        "Mid End" : 1,
+        "Jakarta": 0,
+        "Bandung": 1,
+        "Low End": 0,
+        "Mid End": 1,
         "High End": 2,
         "No": 0,
         "Yes": 1,
@@ -89,7 +88,7 @@ def page_three():
         st.write('Input Features')
         tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
         location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
-        device_class = st.selectbox('Jenis Device: ', ("High End", "Mid End", "Low End"))
+        device_class = st.selectbox('Jenis Device: ', ("Low End", "Mid End", "High End"))
 
         def get_radio_options(device_class):
             if device_class == "Low End":
@@ -124,15 +123,18 @@ def page_three():
         call_center = mapping[call_center]
         payment_method = mapping[payment_method]
 
-        data = np.array([tenure_month, location, device_class, game, music, education, call_center, video, use_my_app, payment_method, monthly_purchase, cltv]).reshape(1, -1)
+        data = np.array(
+            [tenure_month, location, device_class, game, music, education, call_center, video, use_my_app,
+             payment_method, monthly_purchase, cltv]).reshape(1, -1)
 
         if st.form_submit_button('Generate'):
-            
             loaded_model = load_model()
-
             prediction = loaded_model.predict(data)
             prediction_result = prediction_mapping[prediction[0]]
             st.write(f"Prediction: {prediction_result}")
+
+def page_three():
+    render_churn_prediction()
 
 
 multi_page.add_page('Home', page_one)
