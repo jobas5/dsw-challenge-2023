@@ -90,26 +90,19 @@ def page_three():
         tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
         location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
         device_class = st.radio('Jenis Device: ', ("Low End", "Mid End", "High End"))
-        # Inisialisasi variabel
-        game = ""
-        music = ""
-        video = ""
-        education = ""
-        use_my_app = ""
-        
-        if device_class == "Low End":
-            game = "No Internet Service"
-            music = "No Internet Service"
-            education = "No Internet Service"
-            video = "No Internet Service"
-            use_my_app = "No Internet Service"
 
+        if device_class == "Low End":
+            game = st.radio('Use Games Product: ', ("No Internet Service",))
+            music = st.radio('Use Music Product: ', ("No Internet Service",))
+            video = st.radio("Use Video Product: ", ("No Internet Service",))
+            education = st.radio('Use Education Product: ', ("No Internet Service",))
+            use_my_app = st.radio("Use MyApp Application", ("No Internet Service",))
         else:
             game = st.radio('Use Games Product: ', ("No", "Yes", "No Internet Service"))
             music = st.radio('Use Music Product: ', ("No", "Yes", "No Internet Service"))
             video = st.radio("Use Video Product: ", ("No", "Yes", "No Internet Service"))
             education = st.radio('Use Education Product: ', ("No", "Yes", "No Internet Service"))
-            use_my_app = st.radio("Use MyApp Application", ("No", "Yes", "No Internet Sevice"))
+            use_my_app = st.radio("Use MyApp Application", ("No", "Yes", "No Internet Service"))
 
         call_center = st.radio('Call Center: ', ("No", "Yes"))
         payment_method = st.radio('Metode Pembayaran: ', ("Debit", "Pulsa", "Digital Wallet", "Credit"))
