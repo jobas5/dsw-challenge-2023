@@ -84,47 +84,53 @@ def render_churn_prediction():
         1: "Churn"
     }
 
-    if 'device_class' not in st.session_state:
-        st.session_state.device_class = "Low End"
+    
     
     with st.form('Feature Audio Analysis'):
         st.write('Input Features')
         tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
         location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
-        st.session_state.device_class = st.radio('Jenis Device: ', ("Low End", "Mid End", "High End"))
-
-        game_options = ["No Internet Service"] if st.session_state.device_class == "Low End" else ["No", "Yes", "No Internet Service"]
-        music_options = game_options
-        video_options = game_options
-        education_options = game_options
-        use_my_app_options = game_options
-
-        game = st.radio('Use Games Product: ', game_options)
-        music = st.radio('Use Music Product: ', music_options)
-        video = st.radio("Use Video Product: ", video_options)
-        education = st.radio('Use Education Product: ', education_options)
-        use_my_app = st.radio("Use MyApp Application", use_my_app_options)
-
         call_center = st.radio('Call Center: ', ("No", "Yes"))
         payment_method = st.radio('Metode Pembayaran: ', ("Debit", "Pulsa", "Digital Wallet", "Credit"))
         monthly_purchase = st.number_input('Monthly Purchase of Thousand IDR: ', value=0.0, format="%.3f")
         cltv = st.number_input('CLTV: ', value=0.0, format="%.3f")
 
-        location = mapping[location]
-        device_class = mapping[device_class]
-        game = mapping[game]
-        music = mapping[music]
-        video = mapping[video]
-        education = mapping[education]
-        use_my_app = mapping[use_my_app]
-        call_center = mapping[call_center]
-        payment_method = mapping[payment_method]
-
-        data = np.array(
-            [tenure_month, location, device_class, game, music, education, call_center, video, use_my_app,
-             payment_method, monthly_purchase, cltv]).reshape(1, -1)
-
         if st.form_submit_button('Generate'):
+
+            device_class = st.selectbox('Jenis Device: ', ("Low End", "Mid End", "High End"))
+
+            def get_radio_options(device_class):
+                if device_class == "Low End":
+                    return ["No Internet Service"]
+                else:
+                    return ["No", "Yes", "No Internet Service"]
+
+            game_options = get_radio_options(device_class)
+            music_options = get_radio_options(device_class)
+            video_options = get_radio_options(device_class)
+            education_options = get_radio_options(device_class)
+            use_my_app_options = get_radio_options(device_class)
+
+            game = st.radio('Use Games Product: ', game_options)
+            music = st.radio('Use Music Product: ', music_options)
+            video = st.radio("Use Video Product: ", video_options)
+            education = st.radio('Use Education Product: ', education_options)
+            use_my_app = st.radio("Use MyApp Application", use_my_app_options)
+
+            location = mapping[location]
+            device_class = mapping[device_class]
+            game = mapping[game]
+            music = mapping[music]
+            video = mapping[video]
+            education = mapping[education]
+            use_my_app = mapping[use_my_app]
+            call_center = mapping[call_center]
+            payment_method = mapping[payment_method]
+
+            data = np.array(
+                [tenure_month, location, device_class, game, music, education, call_center, video, use_my_app,
+                payment_method, monthly_purchase, cltv]).reshape(1, -1)
+
             loaded_model = load_model()
             prediction = loaded_model.predict(data)
             prediction_result = prediction_mapping[prediction[0]]
