@@ -97,7 +97,7 @@ def page_three():
             video = st.radio("Use Video Product: ", ("No Internet Service",))
             education = st.radio('Use Education Product: ', ("No Internet Service",))
             use_my_app = st.radio("Use MyApp Application", ("No Internet Service",))
-        else:
+        if device_class in ["Mid End", "High End"]:
             game = st.radio('Use Games Product: ', ("No", "Yes", "No Internet Service"))
             music = st.radio('Use Music Product: ', ("No", "Yes", "No Internet Service"))
             video = st.radio("Use Video Product: ", ("No", "Yes", "No Internet Service"))
