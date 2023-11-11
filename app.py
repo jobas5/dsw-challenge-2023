@@ -47,6 +47,13 @@ def responsive_iframe(url):
     """
     st.markdown(code, unsafe_allow_html=True)
 
+@st.cache(suppress_st_warning=True)
+def load_model():
+    file_name = 'xgboost_model_11.pkl'
+
+    with open(file_name, 'rb') as file:
+        return pkl.load(file)
+
 def page_one():
     st.title('Home')
 
@@ -91,8 +98,8 @@ def page_three():
         call_center = st.radio('Call Center: ', ("No", "Yes"))
         use_my_app = st.radio("Use MyApp Application", ("No", "Yes"))
         payment_method = st.radio('Metode Pembayaran: ', ("Debit", "Pulsa", "Digital Wallet", "Credit"))
-        monthly_purchase = st.number_input('Monthly Purchase: ', value=0, step=1)
-        cltv = st.number_input('CLTV: ', value=0, step=1)
+        monthly_purchase = st.number_input('Monthly Purchase of Thousand IDR: ', value=0.0, format="%.3f")
+        cltv = st.number_input('CLTV: ', value=0.0, format="%.3f")
 
         location = mapping[location]
         device_class = mapping[device_class]
@@ -107,10 +114,8 @@ def page_three():
         data = np.array([tenure_month, location, device_class, game, music, education, call_center, video, use_my_app, payment_method, monthly_purchase, cltv]).reshape(1, -1)
 
         if st.form_submit_button('Generate'):
-            file_name = 'xgboost_model_11.pkl'
-
-            with open(file_name, 'rb') as file:
-                loaded_model = pkl.load(file)
+            
+            loaded_model = load_model()
 
             prediction = loaded_model.predict(data)
             prediction_result = prediction_mapping[prediction[0]]
