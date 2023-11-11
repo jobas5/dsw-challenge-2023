@@ -3,7 +3,6 @@ import pickle as pkl
 import numpy as np
 
 
-
 class MultiPage:
 
     def __init__(self):
@@ -85,12 +84,12 @@ def page_three():
         tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
         location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
         device_class = st.radio('Jenis Device: ', ("Low End", "Mid End", "High End"))
-        game = st.radio('Berlangganan Produk Game: ', ("No", "Yes", "No Internet Service"))
-        music = st.radio('Berlangganan Produk Music: ', ("No", "Yes", "No Internet Service"))
-        video = st.radio("Menggunakan produk video: ", ("No", "Yes", "No Internet Service"))
-        education = st.radio('Berlangganan Produk Pendidikan: ', ("No", "Yes", "No Internet Service"))
+        game = st.radio('Use Games Product: ', ("No", "Yes", "No Internet Service"))
+        music = st.radio('Use Music Product: ', ("No", "Yes", "No Internet Service"))
+        video = st.radio("Use Video Product: ", ("No", "Yes", "No Internet Service"))
+        education = st.radio('Use Education Product: ', ("No", "Yes", "No Internet Service"))
         call_center = st.radio('Call Center: ', ("No", "Yes"))
-        use_my_app = st.radio("Menggunakan Aplikasi My App", ("No", "Yes"))
+        use_my_app = st.radio("Use MyApp Application", ("No", "Yes"))
         payment_method = st.radio('Metode Pembayaran: ', ("Debit", "Pulsa", "Digital Wallet", "Credit"))
         monthly_purchase = st.number_input('Monthly Purchase: ', value=0, step=1)
         cltv = st.number_input('CLTV: ', value=0, step=1)
@@ -108,7 +107,7 @@ def page_three():
         data = np.array([tenure_month, location, device_class, game, music, education, call_center, video, use_my_app, payment_method, monthly_purchase, cltv]).reshape(1, -1)
 
         if st.form_submit_button('Generate'):
-            file_name = 'xgboost_model_jobas.pkl'
+            file_name = 'xgboost_model_11.pkl'
 
             with open(file_name, 'rb') as file:
                 loaded_model = pkl.load(file)
