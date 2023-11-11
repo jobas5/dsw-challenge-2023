@@ -84,23 +84,20 @@ def render_churn_prediction():
         1: "Churn"
     }
 
+    if 'device_class' not in st.session_state:
+        st.session_state.device_class = "Low End"
+    
     with st.form('Feature Audio Analysis'):
         st.write('Input Features')
         tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
         location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
-        device_class = st.selectbox('Jenis Device: ', ("Low End", "Mid End", "High End"))
+        st.session_state.device_class = st.radio('Jenis Device: ', ("Low End", "Mid End", "High End"))
 
-        def get_radio_options(device_class):
-            if device_class == "Low End":
-                return ["No Internet Service"]
-            else:
-                return ["No", "Yes", "No Internet Service"]
-
-        game_options = get_radio_options(device_class)
-        music_options = get_radio_options(device_class)
-        video_options = get_radio_options(device_class)
-        education_options = get_radio_options(device_class)
-        use_my_app_options = get_radio_options(device_class)
+        game_options = ["No Internet Service"] if st.session_state.device_class == "Low End" else ["No", "Yes", "No Internet Service"]
+        music_options = game_options
+        video_options = game_options
+        education_options = game_options
+        use_my_app_options = game_options
 
         game = st.radio('Use Games Product: ', game_options)
         music = st.radio('Use Music Product: ', music_options)
