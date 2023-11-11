@@ -90,7 +90,14 @@ def page_three():
         tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
         location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
         device_class = st.radio('Jenis Device: ', ("Low End", "Mid End", "High End"))
-        if device_class in ["Low End", "Mid End"]:
+        # Inisialisasi variabel
+        game = ""
+        music = ""
+        video = ""
+        education = ""
+        use_my_app = ""
+        
+        if device_class == "Low End":
             game = "No Internet Service"
             music = "No Internet Service"
             education = "No Internet Service"
