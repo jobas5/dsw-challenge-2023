@@ -131,7 +131,7 @@ def render_churn_prediction():
     loaded_model = load_model()
     prediction = loaded_model.predict(data)
 
-    if st.button('Predict', type='primary'):
+    if st.button('Predict'):
         prediction_result = prediction_mapping[prediction[0]]
         st.write(f"Prediction: {prediction_result}")        
 
