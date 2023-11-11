@@ -89,20 +89,25 @@ def page_three():
         st.write('Input Features')
         tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
         location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
-        device_class = st.selectbox('Jenis Device: ', ("High End", "Mid End", "Low End"))
+        device_class = st.radio('Jenis Device: ', ("High End", "Mid End", "Low End"))
 
-        if device_class == "Low End":
-            game = st.radio('Use Games Product: ', ("No Internet Service",))
-            music = st.radio('Use Music Product: ', ("No Internet Service",))
-            video = st.radio("Use Video Product: ", ("No Internet Service",))
-            education = st.radio('Use Education Product: ', ("No Internet Service",))
-            use_my_app = st.radio("Use MyApp Application", ("No Internet Service",))
-        else:
-            game = st.radio('Use Games Product: ', ("No", "Yes", "No Internet Service"))
-            music = st.radio('Use Music Product: ', ("No", "Yes", "No Internet Service"))
-            video = st.radio("Use Video Product: ", ("No", "Yes", "No Internet Service"))
-            education = st.radio('Use Education Product: ', ("No", "Yes", "No Internet Service"))
-            use_my_app = st.radio("Use MyApp Application", ("No", "Yes", "No Internet Service"))
+        def get_radio_options(device_class):
+            if device_class == "Low End":
+                return ["No Internet Service"]
+            else:
+                return ["No", "Yes", "No Internet Service"]
+
+        game_options = get_radio_options(device_class)
+        music_options = get_radio_options(device_class)
+        video_options = get_radio_options(device_class)
+        education_options = get_radio_options(device_class)
+        use_my_app_options = get_radio_options(device_class)
+
+        game = st.radio('Use Games Product: ', game_options)
+        music = st.radio('Use Music Product: ', music_options)
+        video = st.radio("Use Video Product: ", video_options)
+        education = st.radio('Use Education Product: ', education_options)
+        use_my_app = st.radio("Use MyApp Application", use_my_app_options)
 
         call_center = st.radio('Call Center: ', ("No", "Yes"))
         payment_method = st.radio('Metode Pembayaran: ', ("Debit", "Pulsa", "Digital Wallet", "Credit"))
