@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle as pkl
 import numpy as np
+from PIL import Image
 
 
 class MultiPage:
@@ -55,6 +56,8 @@ def load_model():
 
 def page_one():
     st.title('Home')
+    profile_team = Image.open('profile.png')
+    st.image(profile_team)
 
 
 def page_two():
