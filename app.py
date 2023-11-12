@@ -4,6 +4,11 @@ import numpy as np
 from PIL import Image
 
 
+st.set_page_config(
+    layout='wide',
+    theme='light'
+)
+
 class MultiPage:
 
     def __init__(self):
