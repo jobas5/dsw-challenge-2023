@@ -114,7 +114,7 @@ def page_one():
     responsive_iframe("https://lookerstudio.google.com/embed/reporting/e250424c-d5da-4da0-bfb5-fb7607becac0/page/p_383q79vcbd&embed=0")
 
 def render_churn_prediction():
-    churn_app = 'Churn Prediction'
+    churn_app = 'Churn Prediction 📉'
     st.markdown(
     f"<h1 style='text-align: center; color: black;'>{churn_app}</h1>",
     unsafe_allow_html=True
