@@ -55,7 +55,11 @@ def load_model():
         return pkl.load(file)
 
 def page_three():
-    st.title('About Us')
+    about_us = 'About Us'
+    st.markdown(
+    f"<h1 style='text-align: center; color: black;'>{about_us}</h1>",
+    unsafe_allow_html=True
+    )
     profile_team = Image.open('profile.png')
     st.image(profile_team)
 
@@ -81,7 +85,7 @@ def page_three():
     # Tampilan
     kontak = "Informasi Kontak"
     st.markdown(
-    f"<h1 style='text-align: center; color: black;'>{kontak}</h1>",
+    f"<h3 style='text-align: center; color: black;'>{kontak}</h3>",
     unsafe_allow_html=True
     )
 
@@ -102,11 +106,19 @@ def page_three():
 
 
 def page_one():
-    st.title('Dashboard')
+    dashboard = 'Dashboard'
+    st.markdown(
+    f"<h1 style='text-align: center; color: black;'>{dashboard}</h1>",
+    unsafe_allow_html=True
+    )
     responsive_iframe("https://lookerstudio.google.com/embed/reporting/e250424c-d5da-4da0-bfb5-fb7607becac0/page/p_383q79vcbd&embed=0")
 
 def render_churn_prediction():
-    st.title('Churn Prediction :writing_hand:')
+    churn_app = 'Churn Prediction :chart_with_downwards_trend:'
+    st.markdown(
+    f"<h1 style='text-align: center; color: black;'>{churn_app}</h1>",
+    unsafe_allow_html=True
+    )
 
     mapping = {
         "Jakarta": 0,
