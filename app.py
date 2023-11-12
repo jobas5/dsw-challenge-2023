@@ -79,25 +79,23 @@ def page_three():
     }
 
     # Tampilan
-    st.title('Kontak Informasi')
+    kontak = "Kontak Informasi"
+    st.title('\n\n\n' + kontak + '\n\n\n')
 
-    # Kolom Pertama
-    with st.container():
-        st.header(kontak_orang_1['Nama'])
-        st.write(f"Email: {kontak_orang_1['Email']}")
-        st.write(f"LinkedIn: {kontak_orang_1['LinkedIn']}")
+    # Membuat kolom secara horizontal
+    kolom1, kolom2, kolom3 = st.columns(3)
 
-    # Kolom Kedua
-    with st.container():
-        st.header(kontak_orang_2['Nama'])
-        st.write(f"Email: {kontak_orang_2['Email']}")
-        st.write(f"LinkedIn: {kontak_orang_2['LinkedIn']}")
+    # Informasi Orang 1
+    with kolom1:
+        st.write(f"**{kontak_orang_1['Nama']}**\n\nEmail: {kontak_orang_1['Email']}\nLinkedIn: {kontak_orang_1['LinkedIn']}")
 
-    # Kolom Ketiga
-    with st.container():
-        st.header(kontak_orang_3['Nama'])
-        st.write(f"Email: {kontak_orang_3['Email']}")
-        st.write(f"LinkedIn: {kontak_orang_3['LinkedIn']}")
+    # Informasi Orang 2
+    with kolom2:
+        st.write(f"**{kontak_orang_2['Nama']}**\n\nEmail: {kontak_orang_2['Email']}\nLinkedIn: {kontak_orang_2['LinkedIn']}")
+
+    # Informasi Orang 3
+    with kolom3:
+        st.write(f"**{kontak_orang_3['Nama']}**\n\nEmail: {kontak_orang_3['Email']}\nLinkedIn: {kontak_orang_3['LinkedIn']}")
 
 
 def page_one():
