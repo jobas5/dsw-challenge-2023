@@ -143,13 +143,14 @@ def page_one():
     )
     responsive_iframe("https://lookerstudio.google.com/embed/reporting/e250424c-d5da-4da0-bfb5-fb7607becac0/page/p_383q79vcbd&embed=0")
 
+
 def render_churn_prediction():
     churn_app = 'Churn Prediction 📉'
     st.markdown(
         f"<h1 style='text-align: center; color: black;'>{churn_app}</h1>"
-        f"<style>body {{" 
+        f"<style>body {{"  # CSS untuk mengubah warna tulisan
             "color: black !important;"
-        "}}</style>",  
+        "}}</style>",  # Penutup tag style
         unsafe_allow_html=True
     )
 
@@ -173,13 +174,12 @@ def render_churn_prediction():
         1: "Churn"
     }
 
-    
-    
-
     st.write('Input Features')
-    tenure_month = st.number_input('Tenure Month: ', value=0, step=1)
-    location = st.radio("Lokasi User", ("Jakarta", "Bandung"))
-    device_class = st.selectbox('Jenis Device: ', ("Low End", "Mid End", "High End"))
+
+    # Tambahkan properti key untuk menyesuaikan gaya elemen
+    tenure_month = st.number_input('Tenure Month: ', value=0, step=1, key='tenure_month')
+    location = st.radio("Lokasi User", ("Jakarta", "Bandung"), key='location')
+    device_class = st.selectbox('Jenis Device: ', ("Low End", "Mid End", "High End"), key='device_class')
 
     def get_radio_options(device_class):
         if device_class == "Low End":
@@ -193,16 +193,15 @@ def render_churn_prediction():
     education_options = get_radio_options(device_class)
     use_my_app_options = get_radio_options(device_class)
 
-    game = st.radio('Use Games Product: ', game_options)
-    music = st.radio('Use Music Product: ', music_options)
-    video = st.radio("Use Video Product: ", video_options)
-    education = st.radio('Use Education Product: ', education_options)
-    use_my_app = st.radio("Use MyApp Application", use_my_app_options)
-    call_center = st.radio('Call Center: ', ("No", "Yes"))
-    payment_method = st.radio('Metode Pembayaran: ', ("Debit", "Pulsa", "Digital Wallet", "Credit"))
-    monthly_purchase = st.number_input('Monthly Purchase of Thousand IDR: ', value=0.0, format="%.3f")
-    cltv = st.number_input('CLTV: ', value=0.0, format="%.3f")
-    
+    game = st.radio('Use Games Product: ', game_options, key='game')
+    music = st.radio('Use Music Product: ', music_options, key='music')
+    video = st.radio("Use Video Product: ", video_options, key='video')
+    education = st.radio('Use Education Product: ', education_options, key='education')
+    use_my_app = st.radio("Use MyApp Application", use_my_app_options, key='use_my_app')
+    call_center = st.radio('Call Center: ', ("No", "Yes"), key='call_center')
+    payment_method = st.radio('Metode Pembayaran: ', ("Debit", "Pulsa", "Digital Wallet", "Credit"), key='payment_method')
+    monthly_purchase = st.number_input('Monthly Purchase of Thousand IDR: ', value=0.0, format="%.3f", key='monthly_purchase')
+    cltv = st.number_input('CLTV: ', value=0.0, format="%.3f", key='cltv')
 
     location = mapping[location]
     device_class = mapping[device_class]
@@ -223,7 +222,8 @@ def render_churn_prediction():
 
     if st.button('Predict'):
         prediction_result = prediction_mapping[prediction[0]]
-        st.write(f"Prediction: {prediction_result}")        
+        st.write(f"Prediction: {prediction_result}")
+       
 
 def page_two():
     render_churn_prediction()
