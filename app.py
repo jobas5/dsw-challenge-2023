@@ -79,23 +79,26 @@ def page_three():
     }
 
     # Tampilan
-    kontak = "Kontak Informasi"
-    st.title('\n\n\n' + kontak + '\n\n\n')
+    kontak = "Informasi Kontak"
+    st.markdown(
+    f"<h1 style='text-align: center; color: black;'>{kontak}</h1>",
+    unsafe_allow_html=True
+    )
 
     # Membuat kolom secara horizontal
     kolom1, kolom2, kolom3 = st.columns(3)
 
     # Informasi Orang 1
     with kolom1:
-        st.write(f"**{kontak_orang_1['Nama']}**\n\nEmail: {kontak_orang_1['Email']}\nLinkedIn: {kontak_orang_1['LinkedIn']}")
+        st.write(f"**{kontak_orang_1['Nama']}**\n\nEmail: {kontak_orang_1['Email']}\n\nLinkedIn: {kontak_orang_1['LinkedIn']}")
 
     # Informasi Orang 2
     with kolom2:
-        st.write(f"**{kontak_orang_2['Nama']}**\n\nEmail: {kontak_orang_2['Email']}\nLinkedIn: {kontak_orang_2['LinkedIn']}")
+        st.write(f"**{kontak_orang_2['Nama']}**\n\nEmail: {kontak_orang_2['Email']}\n\nLinkedIn: {kontak_orang_2['LinkedIn']}")
 
     # Informasi Orang 3
     with kolom3:
-        st.write(f"**{kontak_orang_3['Nama']}**\n\nEmail: {kontak_orang_3['Email']}\nLinkedIn: {kontak_orang_3['LinkedIn']}")
+        st.write(f"**{kontak_orang_3['Nama']}**\n\nEmail: {kontak_orang_3['Email']}\n\nLinkedIn: {kontak_orang_3['LinkedIn']}")
 
 
 def page_one():
