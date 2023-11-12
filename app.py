@@ -51,8 +51,7 @@ def layout_streamlit():
         '''
     st.markdown(light, unsafe_allow_html=True)
 
-    st.set_page_config(
-    layout='wide')
+    st.set_page_config(layout='wide')
 
 layout = layout_streamlit()
 
