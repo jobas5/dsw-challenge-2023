@@ -43,8 +43,7 @@ multi_page = MultiPage()
 
 def layout_streamlit():
     st.set_page_config(
-    layout='wide',
-    theme='light')
+    layout='wide')
 
 layout = layout_streamlit()
 
