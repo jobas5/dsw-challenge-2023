@@ -112,7 +112,7 @@ def page_three():
     with kolom1:
         st.write(
             f"<p style='color: black; font-weight: bold;'>Nama: {kontak_orang_1['Nama']}</p>"
-            f"<p style='color: black; font-weight: bold;'>Email: <a href='mailto:{kontak_orang_1['Email']}'>{kontak_orang_1['Email']}</a></p><br>"
+            f"<p style='color: black; font-weight: bold;'>Email: <a href='mailto:{kontak_orang_1['Email']}'>{kontak_orang_1['Email']}</a><br>"
             f"<p style='color: black; font-weight: bold;'>LinkedIn: <a href='{kontak_orang_1['LinkedIn']}' target='_blank'>{kontak_orang_1['LinkedIn']}</a></p>",
             unsafe_allow_html=True
         )
@@ -121,7 +121,7 @@ def page_three():
     with kolom2:
         st.write(
             f"<p style='color: black; font-weight: bold;'>Nama: {kontak_orang_2['Nama']}</p>"
-            f"<p style='color: black; font-weight: bold;'>Email: <a href='mailto:{kontak_orang_2['Email']}'>{kontak_orang_2['Email']}</a></p><br>"
+            f"<p style='color: black; font-weight: bold;'>Email: <a href='mailto:{kontak_orang_2['Email']}'>{kontak_orang_2['Email']}</a><br>"
             f"<p style='color: black; font-weight: bold;'>LinkedIn: <a href='{kontak_orang_2['LinkedIn']}' target='_blank'>{kontak_orang_2['LinkedIn']}</a></p>",
             unsafe_allow_html=True
         )
@@ -130,7 +130,7 @@ def page_three():
     with kolom3:
         st.write(
             f"<p style='color: black; font-weight: bold;'>Nama: {kontak_orang_3['Nama']}</p>"
-            f"<p style='color: black; font-weight: bold;'>Email: <a href='mailto:{kontak_orang_3['Email']}'>{kontak_orang_3['Email']}</a></p><br>"
+            f"<p style='color: black; font-weight: bold;'>Email: <a href='mailto:{kontak_orang_3['Email']}'>{kontak_orang_3['Email']}</a><br>"
             f"<p style='color: black; font-weight: bold;'>LinkedIn: <a href='{kontak_orang_3['LinkedIn']}' target='_blank'>{kontak_orang_3['LinkedIn']}</a></p>",
             unsafe_allow_html=True
         )
