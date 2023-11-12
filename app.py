@@ -146,8 +146,11 @@ def page_one():
 def render_churn_prediction():
     churn_app = 'Churn Prediction 📉'
     st.markdown(
-    f"<h1 style='text-align: center; color: black;'>{churn_app}</h1>",
-    unsafe_allow_html=True
+        f"<h1 style='text-align: center; color: black;'>{churn_app}</h1>"
+        f"<style>body {{" 
+            "color: black !important;"
+        "}}</style>",  
+        unsafe_allow_html=True
     )
 
     mapping = {
