@@ -42,14 +42,14 @@ class MultiPage:
 def layout_streamlit():
     st.set_page_config(layout='wide')
 
-    light = '''
-        <style>
-            .stApp {
-            background-color: white;
-            }
-        </style>
-        '''
-    st.markdown(light, unsafe_allow_html=True)
+    # light = '''
+    #     <style>
+    #         .stApp {
+    #         background-color: white;
+    #         }
+    #     </style>
+    #     '''
+    # st.markdown(light, unsafe_allow_html=True)
 
 layout = layout_streamlit()
 
