@@ -54,13 +54,53 @@ def load_model():
     with open(file_name, 'rb') as file:
         return pkl.load(file)
 
-def page_one():
-    st.title('Home')
+def page_three():
+    st.title('About Us')
     profile_team = Image.open('profile.png')
     st.image(profile_team)
 
+    # Informasi Kontak
+    kontak_orang_1 = {
+        'Nama': 'Nine Alvariqati',
+        'Email': 'ninealvariqati.v.a@gmail.com',
+        'LinkedIn': 'https://www.linkedin.com/in/nine-alvariqati-a138a5298/'
+    }
 
-def page_two():
+    kontak_orang_2 = {
+        'Nama': 'Joni Bastian',
+        'Email': 'jonibastian01@gmail.com',
+        'LinkedIn': 'https://www.linkedin.com/in/jonibastian/'
+    }
+
+    kontak_orang_3 = {
+        'Nama': 'Ibnu Zahy Atha Illah',
+        'Email': 'ibnuzahyy22@gmail.com',
+        'LinkedIn': 'https://www.linkedin.com/in/ibnuzahy/'
+    }
+
+    # Tampilan
+    st.title('Kontak Informasi')
+
+    # Kolom Pertama
+    with st.beta_container():
+        st.header(kontak_orang_1['Nama'])
+        st.write(f"Email: {kontak_orang_1['Email']}")
+        st.write(f"LinkedIn: {kontak_orang_1['LinkedIn']}")
+
+    # Kolom Kedua
+    with st.beta_container():
+        st.header(kontak_orang_2['Nama'])
+        st.write(f"Email: {kontak_orang_2['Email']}")
+        st.write(f"LinkedIn: {kontak_orang_2['LinkedIn']}")
+
+    # Kolom Ketiga
+    with st.beta_container():
+        st.header(kontak_orang_3['Nama'])
+        st.write(f"Email: {kontak_orang_3['Email']}")
+        st.write(f"LinkedIn: {kontak_orang_3['LinkedIn']}")
+
+
+def page_one():
     st.title('Dashboard')
     responsive_iframe("https://lookerstudio.google.com/embed/reporting/e250424c-d5da-4da0-bfb5-fb7607becac0/page/p_383q79vcbd&embed=0")
 
@@ -139,7 +179,7 @@ def render_churn_prediction():
         prediction_result = prediction_mapping[prediction[0]]
         st.write(f"Prediction: {prediction_result}")        
 
-def page_three():
+def page_two():
     render_churn_prediction()
 
 
