@@ -82,19 +82,19 @@ def page_three():
     st.title('Kontak Informasi')
 
     # Kolom Pertama
-    with st.beta_container():
+    with st.container():
         st.header(kontak_orang_1['Nama'])
         st.write(f"Email: {kontak_orang_1['Email']}")
         st.write(f"LinkedIn: {kontak_orang_1['LinkedIn']}")
 
     # Kolom Kedua
-    with st.beta_container():
+    with st.container():
         st.header(kontak_orang_2['Nama'])
         st.write(f"Email: {kontak_orang_2['Email']}")
         st.write(f"LinkedIn: {kontak_orang_2['LinkedIn']}")
 
     # Kolom Ketiga
-    with st.beta_container():
+    with st.container():
         st.header(kontak_orang_3['Nama'])
         st.write(f"Email: {kontak_orang_3['Email']}")
         st.write(f"LinkedIn: {kontak_orang_3['LinkedIn']}")
@@ -183,8 +183,8 @@ def page_two():
     render_churn_prediction()
 
 
-multi_page.add_page('Home', page_one)
-multi_page.add_page('Dashboard', page_two)
-multi_page.add_page('Churn Prediction', page_three)
+multi_page.add_page('Dashboard', page_one)
+multi_page.add_page('Churn Prediction', page_two)
+multi_page.add_page('About Us', page_three)
 
 multi_page.run()
