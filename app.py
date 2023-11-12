@@ -112,17 +112,17 @@ def page_three():
     with kolom1:
         st.write(
             f"<p style='color: black; font-weight: bold;'>Nama: {kontak_orang_1['Nama']}</p>"
-            f"Email: {kontak_orang_1['Email']}<br>"
-            f"LinkedIn: {kontak_orang_1['LinkedIn']}",
+            f"<p style='color: black; font-weight: bold;'>Email: {kontak_orang_1['Email']}<br>"
+            f"<p style='color: black; font-weight: bold;'>LinkedIn: {kontak_orang_1['LinkedIn']}",
             unsafe_allow_html=True
         )
-        
+
     # Informasi Orang 2
     with kolom2:
         st.write(
             f"<p style='color: black; font-weight: bold;'>Nama: {kontak_orang_2['Nama']}</p>"
-            f"Email: {kontak_orang_2['Email']}<br>"
-            f"LinkedIn: {kontak_orang_2['LinkedIn']}",
+            f"<p style='color: black; font-weight: bold;'>Email: {kontak_orang_2['Email']}<br>"
+            f"<p style='color: black; font-weight: bold;'>LinkedIn: {kontak_orang_2['LinkedIn']}",
             unsafe_allow_html=True
         )
 
@@ -130,8 +130,8 @@ def page_three():
     with kolom3:
         st.write(
             f"<p style='color: black; font-weight: bold;'>Nama: {kontak_orang_3['Nama']}</p>"
-            f"Email: {kontak_orang_3['Email']}<br>"
-            f"LinkedIn: {kontak_orang_3['LinkedIn']}",
+            f"<p style='color: black; font-weight: bold;'>Email: {kontak_orang_3['Email']}<br>"
+            f"<p style='color: black; font-weight: bold;'>LinkedIn: {kontak_orang_3['LinkedIn']}",
             unsafe_allow_html=True
         )
 
