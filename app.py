@@ -51,14 +51,6 @@ def layout_streamlit():
         '''
     st.markdown(light, unsafe_allow_html=True)
 
-    custom_style = """
-    <style>
-        body {
-            color: black !important;
-        }
-    </style>
-    """
-    st.markdown(custom_style, unsafe_allow_html=True)
 
 layout = layout_streamlit()
 
@@ -118,16 +110,30 @@ def page_three():
 
     # Informasi Orang 1
     with kolom1:
-        st.write(f"**{kontak_orang_1['Nama']}**\n\nEmail: {kontak_orang_1['Email']}\n\nLinkedIn: {kontak_orang_1['LinkedIn']}")
-
+        st.write(
+            f"<p style='color: black; font-weight: bold;'>Nama: {kontak_orang_1['Nama']}</p>"
+            f"Email: {kontak_orang_1['Email']}<br>"
+            f"LinkedIn: {kontak_orang_1['LinkedIn']}",
+            unsafe_allow_html=True
+        )
+        
     # Informasi Orang 2
     with kolom2:
-        st.write(f"**{kontak_orang_2['Nama']}**\n\nEmail: {kontak_orang_2['Email']}\n\nLinkedIn: {kontak_orang_2['LinkedIn']}")
+        st.write(
+            f"<p style='color: black; font-weight: bold;'>Nama: {kontak_orang_2['Nama']}</p>"
+            f"Email: {kontak_orang_2['Email']}<br>"
+            f"LinkedIn: {kontak_orang_2['LinkedIn']}",
+            unsafe_allow_html=True
+        )
 
     # Informasi Orang 3
     with kolom3:
-        st.write(f"**{kontak_orang_3['Nama']}**\n\nEmail: {kontak_orang_3['Email']}\n\nLinkedIn: {kontak_orang_3['LinkedIn']}")
-
+        st.write(
+            f"<p style='color: black; font-weight: bold;'>Nama: {kontak_orang_3['Nama']}</p>"
+            f"Email: {kontak_orang_3['Email']}<br>"
+            f"LinkedIn: {kontak_orang_3['LinkedIn']}",
+            unsafe_allow_html=True
+        )
 
 def page_one():
     dashboard = 'Dashboard'
