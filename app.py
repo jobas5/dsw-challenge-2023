@@ -4,10 +4,6 @@ import numpy as np
 from PIL import Image
 
 
-st.set_page_config(
-    layout='wide',
-    theme='light'
-)
 
 class MultiPage:
 
@@ -44,6 +40,13 @@ class MultiPage:
 
 
 multi_page = MultiPage()
+
+def layout_streamlit():
+    st.set_page_config(
+    layout='wide',
+    theme='light')
+
+layout = layout_streamlit()
 
 def responsive_iframe(url):
     code = f"""
