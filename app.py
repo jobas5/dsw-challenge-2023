@@ -39,9 +39,9 @@ class MultiPage:
         page['function']()
 
 
-multi_page = MultiPage()
-
 def layout_streamlit():
+    st.set_page_config(layout='wide')
+
     light = '''
         <style>
             .stApp {
@@ -51,9 +51,9 @@ def layout_streamlit():
         '''
     st.markdown(light, unsafe_allow_html=True)
 
-    st.set_page_config(layout='wide')
-
 layout = layout_streamlit()
+
+multi_page = MultiPage()
 
 def responsive_iframe(url):
     code = f"""
